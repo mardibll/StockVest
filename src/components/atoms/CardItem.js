@@ -2,32 +2,41 @@ import React from 'react';
 import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import {unilever} from '../../assets/Images'; // assuming this import is correct
 
-export default function CardItem({data, styled, isporto = false}) {
+export default function CardItem({data, styled, isporto = false, onPress}) {
   const {title, price, lots, status, name} = data;
-  const initialPrice = 12000; // Assuming initial price is 12000
-
-  // Calculate the percentage change
-  const percentageChange = ((price - initialPrice) / initialPrice) * 100;
+  const open = 12000;
+  const percentageChange = ((price - open) / open) * 100;
+  const roundedPercentageChange = parseInt(percentageChange.toFixed(0)); // Mengambil bilangan bulat
+  console.log(roundedPercentageChange);
+  const sign = roundedPercentageChange >= 0 ? '+' : '-';
+  let textColor;
+if (roundedPercentageChange > 0) {
+    textColor = 'green'; // Warna hijau untuk persentase perubahan positif
+} else if (roundedPercentageChange < 0) {
+    textColor = 'red'; // Warna merah untuk persentase perubahan negatif
+} else {
+    textColor = 'black'; // Warna hitam jika persentase perubahan sama dengan nol
+}
   return (
-    <TouchableOpacity style={[styles.btn, styled]}>
+    <TouchableOpacity style={[styles.btn, styled]} onPress={onPress}>
       <View style={styles.title}>
         <Image source={unilever} style={styles.image} />
         <View>
           <Text style={[styles.text, {fontWeight: 'bold'}]}>{title}</Text>
           {isporto ? (
-            <Text style={styles.text}>Rp{price}</Text>
+            <Text style={styles.text}>{price / 100}</Text>
           ) : (
             <Text>{name}</Text>
           )}
         </View>
       </View>
       {isporto && (
-        <View style={{alignItems: 'center', width: '40%'}}>
+        <View style={{alignItems: 'center'}}>
           <Text style={styles.text}>{lots} Lot</Text>
-          <Text style={styles.text}>Rp{price * lots}</Text>
+          <Text style={styles.text}>{price * lots}</Text>
         </View>
       )}
-      <View style={{width: '20%', alignItems: 'flex-end'}}>
+      <View style={{alignItems: 'flex-end'}}>
         {isporto ? (
           <Text
             style={[
@@ -35,14 +44,16 @@ export default function CardItem({data, styled, isporto = false}) {
               {
                 color: status === 'Match' ? 'green' : 'red',
                 fontWeight: status ? '600' : 'normal',
+                width: 90,
+                textAlign: 'right',
               },
             ]}>
             {status}
           </Text>
         ) : (
           <>
-            <Text>Rp{price}</Text>
-            <Text>({percentageChange.toFixed(2)}%)</Text>
+            <Text style={{color:"black"}}>{price / 100}</Text>
+            <Text style={{ color: textColor }}>{sign}{Math.abs(roundedPercentageChange)} ({percentageChange.toFixed(2)}%)</Text>
           </>
         )}
       </View>
@@ -69,6 +80,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     gap: 10,
-    width: '35%',
+    width: '30%',
   },
 });

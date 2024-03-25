@@ -1,4 +1,5 @@
 import {
+  Dimensions,
   ScrollView,
   StyleSheet,
   Text,
@@ -8,50 +9,68 @@ import {
 import React, {useState} from 'react';
 import CardItem from '../../components/atoms/CardItem';
 import {MaterialIcons} from '../../assets/Icons';
+import Card_Modal from '../../components/atoms/Card_Modal';
+import Detail from './Detail';
 
 const Stream = () => {
   const [onMenu, setonMenu] = useState('Today');
-
+  const [detail, setdetail] = useState(false);
   return (
     <View style={styles.container}>
-      <View style={styles.title}>
-        <MaterialIcons
-          name="candlestick-chart"
-          style={{fontSize: 25, color: 'black'}}
-        />
-        <Text style={[styles.text, {fontSize: 25}]}>Stockvest</Text>
-        <View style={styles.animasi}></View>
-      </View>
       <View
         style={{
-          flexDirection: 'row',
-          justifyContent: 'space-between',
-          paddingVertical: 23,
+          backgroundColor: 'white',
+          padding: 20,
+          elevation: 6,
+          paddingBottom: 10,
         }}>
-        {menu.map((item, index) => (
-          <TouchableOpacity
-            onPress={() => setonMenu(item.title)}
-            key={index}
-            style={[
-              styles.btn,
-              {
-                backgroundColor: item.title === onMenu ? 'black' : '#f3f3f3',
-                elevation: item.title === onMenu ? 10 : 2,
-              },
-            ]}>
-            <Text style={{color: item.title === onMenu ? 'white' : 'black'}}>
-              {item.title}
-            </Text>
-          </TouchableOpacity>
-        ))}
+        <View style={styles.title}>
+          <MaterialIcons
+            name="candlestick-chart"
+            style={{fontSize: 25, color: 'black'}}
+          />
+          <Text style={[styles.text, {fontSize: 25}]}>Stockvest</Text>
+          <View style={styles.animasi} />
+        </View>
+        <View
+          style={{
+            flexDirection: 'row',
+            justifyContent: 'space-between',
+            paddingVertical: 23,
+          }}>
+          {menu.map((item, index) => (
+            <TouchableOpacity
+              onPress={() => setonMenu(item.title)}
+              key={index}
+              style={[
+                styles.btn,
+                {
+                  backgroundColor: item.title === onMenu ? 'black' : '#f3f3f3',
+                  elevation: item.title === onMenu ? 10 : 2,
+                },
+              ]}>
+              <Text style={{color: item.title === onMenu ? 'white' : 'black'}}>
+                {item.title}
+              </Text>
+            </TouchableOpacity>
+          ))}
+        </View>
+        <Text style={styles.text}>Transaction Today</Text>
       </View>
-      <Text style={styles.text}>Transaction Today</Text>
-      <ScrollView
-        style={{marginBottom: -20, paddingTop: 10}}
-        showsVerticalScrollIndicator={false}>
-        <View>
+
+      <ScrollView style={{}} showsVerticalScrollIndicator={false}>
+        <View
+          style={{
+            backgroundColor: 'white',
+            marginTop: 4,
+            borderTopRightRadius: 10,
+            borderTopLeftRadius: 10,
+            elevation: 3,
+            paddingHorizontal: 20,
+          }}>
           {dataArray.map((data, index) => (
             <CardItem
+              onPress={() => setdetail(data)}
               key={index}
               data={data}
               styled={styles.card}
@@ -60,6 +79,7 @@ const Stream = () => {
           ))}
         </View>
       </ScrollView>
+      {detail && <Detail data={detail} amend={() => setdetail(!detail)} />}
     </View>
   );
 };
@@ -68,14 +88,14 @@ export default Stream;
 
 const styles = StyleSheet.create({
   container: {
+    backgroundColor: '#f3f3f3',
+    position: 'relative',
     flex: 1,
-    backgroundColor: 'white',
-    padding: 20,
   },
   card: {
-    borderBottomWidth: 0.2,
-    borderColor: 'gray',
-    paddingVertical: 15,
+    borderBottomWidth: 0.3,
+    borderColor: '#c8ecec',
+    paddingVertical: 12,
   },
   title: {
     flexDirection: 'row',
@@ -164,5 +184,71 @@ const dataArray = [
     price: 5000,
     lots: 3,
     status: 'Withdrawal',
+  },
+  {
+    title: 'BLTA',
+    price: 5000,
+    lots: 3,
+    status: 'Withdrawal',
+  },
+  {
+    title: 'BLTA',
+    price: 50000,
+    lots: 3,
+    status: 'Match',
+  },
+  {
+    title: 'BLTA',
+    price: 5000,
+    lots: 3,
+    status: 'Open',
+  },
+  {
+    title: 'BLTA',
+    price: 5000,
+    lots: 3,
+    status: 'Withdrawal',
+  },
+  {
+    title: 'BLTA',
+    price: 5000,
+    lots: 3,
+    status: 'Open',
+  },
+  {
+    title: 'BLTA',
+    price: 5000,
+    lots: 3,
+    status: 'Withdrawal',
+  },
+  {
+    title: 'BLTA',
+    price: 5000,
+    lots: 3,
+    status: 'Withdrawal',
+  },
+  {
+    title: 'BLTA',
+    price: 50000,
+    lots: 3,
+    status: 'Match',
+  },
+  {
+    title: 'BLTA',
+    price: 5000,
+    lots: 3,
+    status: 'Open',
+  },
+  {
+    title: 'BLTA',
+    price: 5000,
+    lots: 3,
+    status: 'Withdrawal',
+  },
+  {
+    title: 'BLTA',
+    price: 5000,
+    lots: 3,
+    status: 'Open',
   },
 ];
