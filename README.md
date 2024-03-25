@@ -1,4 +1,6 @@
-# App Contact
+# StockVest
+
+StockVest is a stock investment mobile app that is easy and intuitive for users. StockVest offers various exciting features like Real-Time Stock Monitoring, Personalized Notifications, In-Depth Analysis, Well-Managed Portfolios, Market News and Trends, Advanced Search Features and much more.
 
 This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
 
@@ -8,8 +10,7 @@ This application uses several tools/libraries, including:
 - [Reac-native Config](https://www.npmjs.com/package/react-native-config),
 - [Vector icons](https://oblador.github.io/react-native-vector-icons),
 
-
-## Screens App Test [Release](https://github.com/eldirb21/app-contact/releases)
+## Screens StockVest Test [Release](https://github.com/mardibll/StockVest/releases/tag/Android)
 
 <p align="center">
     <img src="./Appscreens/login.png" width="50%"> 
