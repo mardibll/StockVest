@@ -12,11 +12,15 @@ This application uses several tools/libraries, including:
 ## Screens App Test [Release](https://github.com/mardibll/StockVest/releases/tag/Android)
 
 <p align="center">
-    <img src="./Appscreens/login.png" width="50%"> 
-    <img src="./Appscreens/sign_Up.png" width="50%"> 
-    <img src="./Appscreens/market.png" width="50%" >
-    <img src="./Appscreens/order.png" width="50%" >
-    <img src="./Appscreens/transaction.png" width="50%" >
+    <img src="./Appscreens/login.png" width="30%"> 
+    <img src="./Appscreens/regist.png" width="30%"> 
+    <img src="./Appscreens/notifRegist.png" width="30%" >
+    <img src="./Appscreens/forgot.png" width="30%" >
+    <img src="./Appscreens/verify.png" width="30%" >
+    <img src="./Appscreens/watchlist.png" width="30%"> 
+    <img src="./Appscreens/portofolio.png" width="30%"> 
+    <img src="./Appscreens/statusOrder.png" width="30%" >
+    <img src="./Appscreens/profile.png" width="30%" >
 </p>
 
 ## Getting Started
