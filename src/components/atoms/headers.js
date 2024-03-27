@@ -13,10 +13,11 @@ const Headers = ({
   title,
   back = 'chevron-left',
   logo = true,
+  styled,
 }) => {
   const [follow, setfollow] = useState(false);
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, styled]}>
       <View style={{flexDirection: 'row', alignItems: 'center', gap: 4}}>
         {back && <MaterialIcons name={back} style={styles.icon} />}
 
@@ -44,6 +45,7 @@ export default Headers;
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
+    backgroundColor: 'white',
     alignItems: 'center',
     justifyContent: 'space-between',
     position: 'relative',

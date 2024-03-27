@@ -6,11 +6,10 @@ This is a new [**React Native**](https://reactnative.dev) project, bootstrapped 
 
 This application uses several tools/libraries, including:
 
-- [React-navigation](https://reactnavigation.org/docs/redux-integration),
-- [Reac-native Config](https://www.npmjs.com/package/react-native-config),
+- [React-navigation](https://reactnavigation.org/docs/getting-started/),
 - [Vector icons](https://oblador.github.io/react-native-vector-icons),
 
-## Screens StockVest Test [Release](https://github.com/mardibll/StockVest/releases/tag/Android)
+## Screens App Test [Release](https://github.com/mardibll/StockVest/releases/tag/Android)
 
 <p align="center">
     <img src="./Appscreens/login.png" width="50%"> 

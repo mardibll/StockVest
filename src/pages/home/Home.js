@@ -6,7 +6,8 @@ const Home = () => {
   const [isMenu, setisMenu] = useState('Trending');
   return (
     <View style={styles.container}>
-      <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+      <Text>HOme</Text>
+      {/* <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
         {menu.map((item, index) => (
           <TouchableOpacity
             key={index}
@@ -28,7 +29,7 @@ const Home = () => {
         {dataArray.map((data, index) => (
           <CardItem key={index} data={data} styled={styles.card} />
         ))}
-      </View>
+      </View> */}
     </View>
   );
 };

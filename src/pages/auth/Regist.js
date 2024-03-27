@@ -29,13 +29,13 @@ const Regist = () => {
         <Input placholder={'Email'} />
         <View>
           <Input placholder={'Password'} />
-          <Text style={{fontSize: 13}}>
+          {/* <Text style={{fontSize: 13}}>
             Maximum of 6 characters with numbers
-          </Text>
+          </Text> */}
         </View>
         <View>
           <Input secure={true} placholder={'Confirm Password'} />
-          <Text style={{fontSize: 13}}>Passwords do not match</Text>
+          {/* <Text style={{fontSize: 13}}>Passwords do not match</Text> */}
         </View>
       </View>
 
