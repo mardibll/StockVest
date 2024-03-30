@@ -5,3 +5,7 @@ export const unilever = require('./unilever.png');
 export const history = require('./history.png');
 export const deposit = require('./deposit.png');
 export const withdraw = require('./withdraw.png');
+
+export const IHSG = require('./ihsg.png');
+
+export const logo = require('./logo.png');

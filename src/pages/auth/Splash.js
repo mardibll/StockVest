@@ -1,8 +1,9 @@
-import {StyleSheet, Text, View} from 'react-native';
+import {Image, StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 import Buttons from '../../components/atoms/Buttons';
-import {MaterialIcons} from '../../assets/Icons';
 import {useNavigation} from '@react-navigation/native';
+import Headers from '../../components/atoms/headers';
+import {logo} from '../../assets/Images';
 const Splash = () => {
   const navigation = useNavigation();
   const getStart = () => {
@@ -10,23 +11,28 @@ const Splash = () => {
   };
   return (
     <View style={styles.container}>
-      <View style={styles.title}>
-        <MaterialIcons
-          name="candlestick-chart"
-          style={{fontSize: 25, color: 'black'}}
+      <Headers back={false} />
+      <View style={{paddingTop: 50}}>
+        <View style={{height: 300, width: '100%', paddingBottom: 20}}>
+          <Image
+            source={logo}
+            alt="error"
+            style={{width: '100%', height: '100%'}}
+          />
+        </View>
+        <Text style={[styles.text, {paddingHorizontal: 20, letterSpacing: 2}]}>
+          Easy Stock Investment For Beginners
+        </Text>
+        <Text
+          style={{fontSize: 14, textAlign: 'center', paddingHorizontal: 50}}>
+          Screening feature to filter stocks to maximize profits
+        </Text>
+        <Buttons
+          title={"Let's Get Started"}
+          onPress={getStart}
+          style_btn={{margin: 20, marginTop: 50}}
         />
-        <Text style={[styles.text, {fontSize: 20}]}>Stockvest</Text>
-        <View style={styles.animasi}></View>
       </View>
-      <Text style={[styles.text, {paddingHorizontal: 40}]}>
-        Easy Stock Investment For Beginners
-      </Text>
-      <Text style={{fontSize: 14, textAlign: 'center', paddingHorizontal: 60}}>
-        Screening feature to filter stocks to maximize profits
-      </Text>
-      <Buttons title={"Let's Get Started"} onPress={getStart} />
-
-      {/* <Buttons /> */}
     </View>
   );
 };
@@ -36,7 +42,7 @@ export default Splash;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 20,
+    paddingTop: 30,
     backgroundColor: 'white',
   },
   title: {

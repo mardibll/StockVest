@@ -28,27 +28,43 @@ const Protofolio = () => {
   ];
   return (
     <View style={styles.container}>
-      <Headers back={false} styled={{paddingVertical: 15, elevation: 4}} />
+      <Headers back={false} styled={{paddingVertical: 15, elevation: 2}} />
       <ScrollView showsVerticalScrollIndicator={false}>
-        <View>
-          <Text>Portofolio</Text>
-          <Text>Rp13.400.543</Text>
-          <View>
-            <View>
-              <Text>Profit/Loss</Text>
-              <Text>-98.000</Text>
+        <View style={styles.card}>
+          <View style={{alignItems: 'center'}}>
+            <Text style={[styles.textbolt, {fontSize: 20, fontWeight: '600'}]}>
+              Portofolio
+            </Text>
+            <Text style={[styles.textbolt, {fontSize: 24}]}>Rp13.400.543</Text>
+          </View>
+          <View
+            style={{
+              flexDirection: 'row',
+              justifyContent: 'space-between',
+              alignItems: 'center',
+            }}>
+            <View style={{alignItems: 'flex-start'}}>
+              <Text style={[styles.textbolt, {fontWeight: '400'}]}>
+                Profit/Loss
+              </Text>
+              <Text style={styles.textbolt}>-98.000</Text>
             </View>
-            <View>
-              <Text>Capital Gain</Text>
-              <Text>-12,3%</Text>
+            <View style={{alignItems: 'center'}}>
+              <Text style={[styles.textbolt, {fontWeight: '400'}]}>
+                Capital Gain
+              </Text>
+              <Text style={styles.textbolt}>-12,3%</Text>
             </View>
-            <View>
-              <Text>Open</Text>
-              <Text>Rp97.000</Text>
+            <View style={{alignItems: 'flex-end'}}>
+              <Text style={[styles.textbolt, {fontWeight: '400'}]}>Open</Text>
+              <Text style={styles.textbolt}>Rp97.000</Text>
             </View>
           </View>
         </View>
-        {investment.map((item, index) => (  
+     <View style={{marginTop:20,marginLeft:20}}>
+     <Text style={[styles.textbolt, {fontSize:22,}]}>StockVest</Text>
+     </View>
+        {investment.map((item, index) => (
           <Card_Protofolio key={index} data={item} />
         ))}
       </ScrollView>
@@ -61,7 +77,21 @@ export default Protofolio;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: 'white',
     // padding:20
+  },
+  textbolt: {
+    fontWeight: 'bold',
+    color: 'black',
+    fontSize: 14,
+  },
+  card: {
+    backgroundColor: 'white',
+    padding: 20,
+    margin: 20,
+    gap: 20,
+    elevation: 15,
+    borderRadius: 10,
   },
 });
 
