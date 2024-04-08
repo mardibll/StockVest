@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "819425201588",
+    "firebase_url": "https://stockvest-97fae-default-rtdb.firebaseio.com",
+    "project_id": "stockvest-97fae",
+    "storage_bucket": "stockvest-97fae.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:819425201588:android:217c4bf47088722c4ff6e1",
+        "android_client_info": {
+          "package_name": "com.stockvest"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "819425201588-r08nrmrfpeveq58cof9dj21rhj9qg2hn.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.stockvest",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "819425201588-5fi62codj6fh6hlsbuomfdgsvpts3q9q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD1fXBKlZ6p-WVRAZjiufl2QOL0uO1n9E8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "819425201588-5fi62codj6fh6hlsbuomfdgsvpts3q9q.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

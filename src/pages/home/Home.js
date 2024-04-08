@@ -8,9 +8,9 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import CardItem from '../../components/atoms/CardItem';
-import {index_ITMG} from '../../db/Itmg';
+import { index_ITMG } from '../../db/Itmg';
 import {
   LineChart,
   BarChart,
@@ -19,51 +19,72 @@ import {
   ContributionGraph,
   StackedBarChart,
 } from 'react-native-chart-kit';
-import {IHSG} from '../../assets/Images';
+import { IHSG } from '../../assets/Images';
 import Headers from '../../components/atoms/headers';
 import Inputs from '../../components/atoms/Inputs';
 import Input from '../../components/atoms/Input';
+import { market } from '../../db/market';
 const Home = () => {
   const [isMenu, setisMenu] = useState('Trending');
-  useEffect(() => {
-    index_ITMG();
-  }, []);
+  const [terde, setterde] = useState([])
+  // useEffect(() => {
+  //   index_ITMG();
+  //   const data = market
+  //   setterde(data)
+
+
+  //   const intervalId = setInterval(() => {
+  //     setterde(prevState => {
+  //       const newState = prevState.map(item => {
+  //         return { ...item, realtime: (item.realtime || 0) + 1 };
+  //       });
+  //       // console.log("Updated state:", newState); // Log updated state
+  //       return newState;
+  //     });
+  //   }, 3000);
+  // }, []);
+
+  // const filter = terde.map(item => {
+  //   return { ...item, realtime: item.realtime || 0 };
+  // });
+
+  // console.log(filter);
   return (
     <View style={styles.container}>
-      <Headers back={false}/>
-     <ScrollView showsVerticalScrollIndicator={false}>
-     <View style={{padding: 20}}>
-        <Input placholder={'Search'} />
-      </View>
-      <View style={{width: '100%', backgroundColor: 'red', height: 250}}>
-        <Image source={IHSG} alt="error" style={styles.image} />
-      </View>
-      <View style={{padding: 20, gap: 10, marginTop: 15}}>
-        <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
-          {menu.map((item, index) => (
-            <TouchableOpacity
-              key={index}
-              style={[
-                styles.btn_menu,
-                {
-                  backgroundColor: isMenu === item.title ? 'black' : '#f3f3f3',
-                  elevation: isMenu === item.title ? 10 : 2,
-                },
-              ]}
-              onPress={() => setisMenu(item.title)}>
-              <Text style={{color: isMenu === item.title ? 'white' : 'black'}}>
-                {item.title}
-              </Text>
-            </TouchableOpacity>
-          ))}
+      <Headers back={false} />
+      <ScrollView showsVerticalScrollIndicator={false}>
+        <View style={{ padding: 20 }}>
+          <Input placholder={'Search'} />
         </View>
-        <View>
-          {dataArray.map((data, index) => (
-            <CardItem key={index} data={data} styled={styles.card} />
-          ))}
+        <View style={{ width: '100%', height: 250 }}>
+          <Image source={IHSG} alt="error" style={styles.image} />
         </View>
-      </View>
-     </ScrollView>
+        <View style={{ padding: 20, gap: 10, marginTop: 15 }}>
+          <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+            {menu.map((item, index) => (
+              <TouchableOpacity
+                key={index}
+                style={[
+                  styles.btn_menu,
+                  {
+                    backgroundColor: isMenu === item.title ? 'black' : '#f3f3f3',
+                    elevation: isMenu === item.title ? 5 : 2,
+                  },
+                ]}
+                onPress={() => setisMenu(item.title)}>
+                <Text style={{ color: isMenu === item.title ? 'white' : 'black' }}>
+                  {item.title}
+                </Text>
+              </TouchableOpacity>
+            ))}
+          </View>
+          <View>
+            {dataArray.map((data, index) => (
+              <CardItem key={index} data={data} styled={styles.card} />
+            ))}
+          </View>
+        </View>
+      </ScrollView>
     </View>
   );
 };
@@ -78,7 +99,7 @@ const styles = StyleSheet.create({
   },
   btn_menu: {
     padding: 5,
-    paddingHorizontal: 9,
+    paddingHorizontal: 7,
     borderRadius: 15,
   },
   image: {
@@ -94,10 +115,10 @@ const styles = StyleSheet.create({
 });
 
 const menu = [
-  {title: 'Trending'},
-  {title: 'Top Guiner'},
-  {title: 'Top Loser'},
-  {title: 'Most Active'},
+  { title: 'Trending' },
+  { title: 'Top Guiner' },
+  { title: 'Top Loser' },
+  { title: 'Most Active' },
 ];
 
 const dataArray = [

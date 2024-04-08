@@ -2,7 +2,7 @@ import {StyleSheet, Text, TextInput, View} from 'react-native';
 import React, {useState} from 'react';
 import {Feather} from '../../assets/Icons';
 
-export default function Input({secure, type, placholder, styleshed}) {
+export default function Input({secure, type, placholder, styleshed,value, onChangeText}) {
   const [Private, setIsPrivate] = useState(true); // Renamed state variable
 
   return (
@@ -12,6 +12,8 @@ export default function Input({secure, type, placholder, styleshed}) {
         placeholderTextColor="#A2A0A8"
         placeholder={placholder}
         keyboardType={type}
+        value={value}
+        onChangeText={onChangeText}
         secureTextEntry={secure ? Private : false}
       />
 

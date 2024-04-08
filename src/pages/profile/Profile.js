@@ -16,6 +16,7 @@ import {
   MaterialIcons,
 } from '../../assets/Icons';
 import ListMenu from '../../components/atoms/listMenu';
+import Uplod from '../../components/molekul/Uplod';
 
 const Profile = () => {
   return (
@@ -23,40 +24,43 @@ const Profile = () => {
       <Headers back={false} styled={styles.header} />
       <ScrollView showsVerticalScrollIndicator={false}>
         <View style={styles.content_top}>
-          <View style={{alignItems: 'center'}}>
-            <Image
-              source={{
-                uri: 'https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp',
-              }}
-              style={styles.image}
-              alt="error"
-            />
+          <View style={{ alignItems: 'center' }}>
+            <View style={styles.avatarContain}>
+              <Image
+                source={{
+                  uri: 'https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp',
+                }}
+                style={styles.avatar}
+                alt="error"
+              />
+            </View>
+            <Uplod />
             <Text style={styles.textbold}>Lery Jhon'nes</Text>
-            <Text style={{color: 'green', fontSize: 12}}>Lihat profile</Text>
+            <Text style={{ color: 'green', fontSize: 12 }}>Lihat profile</Text>
           </View>
           <View style={styles.balance}>
-            <View style={{alignItems: 'center'}}>
-              <Text style={[styles.textbold, {color: 'gray'}]}>
+            <View style={{ alignItems: 'center' }}>
+              <Text style={[styles.textbold, { color: 'gray' }]}>
                 Trading Balance
               </Text>
               <Text style={styles.textbold}>Rp 19,873</Text>
             </View>
-            <View style={{alignItems: 'center'}}>
-              <Text style={[styles.textbold, {color: 'gray'}]}>Eqity</Text>
+            <View style={{ alignItems: 'center' }}>
+              <Text style={[styles.textbold, { color: 'gray' }]}>Eqity</Text>
               <Text style={styles.textbold}>Rp 25,023</Text>
             </View>
           </View>
           <View style={styles.content_menu}>
             {menu.map((item, index) => (
-              <TouchableOpacity key={index} style={{alignItems: 'center'}}>
+              <TouchableOpacity key={index} style={{ alignItems: 'center' }}>
                 <MaterialCommunityIcons name={item.icon} style={styles.icon} />
-                <Text style={{color: 'black'}}>{item.title}</Text>
+                <Text style={{ color: 'black' }}>{item.title}</Text>
               </TouchableOpacity>
             ))}
           </View>
         </View>
         <View style={styles.content_list}>
-          <View style={{paddingLeft: 20, paddingRight: 5}}>
+          <View style={{ paddingLeft: 20, paddingRight: 5 }}>
             {listmenu.map((item, index) => (
               <ListMenu key={index} data={item} />
             ))}
@@ -64,20 +68,20 @@ const Profile = () => {
         </View>
         <View style={styles.content_bottom}>
           <TouchableOpacity style={styles.log_out}>
-            <View style={{flexDirection: 'row', alignItems: 'center', gap: 20}}>
-              <Entypo name="log-out" style={{fontSize: 20, color: 'red'}} />
-              <Text style={{fontSize: 18, color: 'red', fontWeight: '600'}}>
+            <View style={{ flexDirection: 'row', alignItems: 'center', gap: 20 }}>
+              <Entypo name="log-out" style={{ fontSize: 20, color: 'red' }} />
+              <Text style={{ fontSize: 18, color: 'red', fontWeight: '600' }}>
                 Log Out
               </Text>
             </View>
-            <Entypo name="chevron-right" style={{fontSize: 20, color: 'red'}} />
+            <Entypo name="chevron-right" style={{ fontSize: 20, color: 'red' }} />
           </TouchableOpacity>
           <Text
-            style={{textAlign: 'center', color: 'black', fontWeight: 'bold'}}>
+            style={{ textAlign: 'center', color: 'black', fontWeight: 'bold' }}>
             StockVest Sekuritas Digital
           </Text>
           <View
-            style={{flexDirection: 'row', justifyContent: 'center', gap: 10}}>
+            style={{ flexDirection: 'row', justifyContent: 'center', gap: 10 }}>
             <Image
               source={{
                 uri: 'https://static.promediateknologi.id/crop/0x0:0x0/750x500/webp/photo/2023/07/24/Twitter-lama-3543351973.png',
@@ -101,7 +105,7 @@ const Profile = () => {
             />
           </View>
           <View>
-            <Text style={{textAlign: 'center'}}>Version : 2.20.0 (10795)</Text>
+            <Text style={{ textAlign: 'center' }}>Version : 2.20.0 (10795)</Text>
           </View>
         </View>
       </ScrollView>
@@ -128,12 +132,7 @@ const styles = StyleSheet.create({
     paddingTop: 30,
     elevation: 2,
   },
-  image: {
-    height: 100,
-    width: 100,
-    borderRadius: 100,
-    resizeMode: 'center',
-  },
+
   balance: {
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -190,6 +189,22 @@ const styles = StyleSheet.create({
     width: 40,
     borderRadius: 100,
   },
+  avatarContain: {
+    borderStyle: 'dashed',
+    borderWidth: 3,
+    borderColor: 'orange',
+    height: 110,
+    width: 110,
+    borderRadius: 100,
+    justifyContent: "center",
+    alignItems: "center"
+  },
+  avatar: {
+    height: 100,
+    width: 100,
+    borderRadius: 100,
+    resizeMode: 'center',
+  },
 });
 
 const menu = [
@@ -209,39 +224,39 @@ const menu = [
 
 const listmenu = [
   {
-    icon: <Feather name="user" style={{fontSize: 20}} />,
+    icon: <Feather name="user" style={{ fontSize: 20 }} />,
     title: 'Akun',
   },
   {
-    icon: <Feather name="lock" style={{fontSize: 20}} />,
+    icon: <Feather name="lock" style={{ fontSize: 20 }} />,
     title: 'Security',
   },
   {
-    icon: <EvilIcons name="question" style={{fontSize: 20}} />,
+    icon: <EvilIcons name="question" style={{ fontSize: 20 }} />,
     title: 'FAQs',
   },
   {
-    icon: <MaterialIcons name="support" style={{fontSize: 20}} />,
+    icon: <MaterialIcons name="support" style={{ fontSize: 20 }} />,
     title: 'Live Support',
   },
   {
-    icon: <Feather name="globe" style={{fontSize: 20}} />,
+    icon: <Feather name="globe" style={{ fontSize: 20 }} />,
     title: 'Bahasa',
   },
   {
-    icon: <MaterialIcons name="dark-mode" style={{fontSize: 20}} />,
+    icon: <MaterialIcons name="dark-mode" style={{ fontSize: 20 }} />,
     title: 'Mode Gelap',
   },
   {
-    icon: <Feather name="user-plus" style={{fontSize: 20}} />,
+    icon: <Feather name="user-plus" style={{ fontSize: 20 }} />,
     title: 'Temukan Teman',
   },
   {
-    icon: <MaterialIcons name="notifications-none" style={{fontSize: 20}} />,
+    icon: <MaterialIcons name="notifications-none" style={{ fontSize: 20 }} />,
     title: 'Notifikasi',
   },
   {
-    icon: <Feather name="star" style={{fontSize: 20}} />,
+    icon: <Feather name="star" style={{ fontSize: 20 }} />,
     title: 'Beri Stockvest Rating',
   },
 ];

@@ -7,7 +7,6 @@ export default function CardItem({data, styled, isporto = false, onPress}) {
   const open = 12000;
   const percentageChange = ((price - open) / open) * 100;
   const roundedPercentageChange = parseInt(percentageChange.toFixed(0)); // Mengambil bilangan bulat
-  console.log(roundedPercentageChange);
   const sign = roundedPercentageChange >= 0 ? '+' : '-';
   let textColor;
 if (roundedPercentageChange > 0) {
